@@ -1,342 +1,105 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" >
 
-<head>
-  <meta charset="UTF-8" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="keywords" content="Gridea静态个人博客">
-<meta name="description" content="">
-<meta name="theme-color" content="#000">
 <title>耐心点 | 猎豹117</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1620537163599">
-<link rel="stylesheet" href="/styles/main.css">
-<link rel="stylesheet" href="/media/css/gemini.css">
 
-<link rel="stylesheet" href="/media/fonts/font-awesome.css">
-<link
-  href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
-  rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-<link href="/media/hljs/styles/androidstudio.css"
-  rel="stylesheet">
-
-<script src="/media/hljs/highlight.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
-
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://liebao117.github.io/blog/favicon.ico?v=1620537357919">
+<link rel="stylesheet" href="https://liebao117.github.io/blog/styles/main.css">
 
 
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
 
-  <meta name="description" content="耐心点" />
-  <meta name="keywords" content="" />
-</head>
+  
 
-<body>
-  <div class="head-top-line"></div>
-  <div class="header-box">
-    
-<div class="gemini">
-  <header class="header  ">
-    <div class="blog-header box-shadow-wrapper bg-color " id="header">
-      <div class="nav-toggle" id="nav_toggle">
-        <div class="toggle-box">
-          <div class="line line-top"></div>
-          <div class="line line-center"></div>
-          <div class="line line-bottom"></div>
-        </div>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="我后来弄明白的一件事是，通常地（至少在硅谷科技界是如此），杰出的人会有大成果。你必须要有耐性。20年前，我职业生涯刚开始时，每个我遇到的人，我盯着他们然后说，”哇，那个男孩或女孩超级能干——如此聪明且专注“...他们全部，几乎不出意外，都变..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://liebao117.github.io/blog">
+        <img src="https://liebao117.github.io/blog/images/avatar.png?v=1620537357919" class="site-logo">
+        <h1 class="site-title">猎豹117</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
       </div>
-      <div class="site-meta">       
-        <div class="site-title">
-          
-            <a href="/" class="brand">
-              <span>猎豹117</span>
-            </a>  
-          
-        </div>
-        
-          <p class="subtitle">精于心，简于形</p>
-        
-      </div>
-      <nav class="site-nav" id="site_nav">
-        <ul id="nav_ul">
-          
-            
-            
-              
-            
-            <li class="nav-item ">
-              
-              
-                <a href="https://liebao117.github.io/blog/" target="_self">
-                  <i class="fa fa-globe"></i> 首页
-                </a>
-              
-            </li>
-          
-            
-            
-              
-            
-            <li class="nav-item ">
-              
-              
-                <a href="https://liebao117.github.io/blog/archives/" target="_self">
-                  <i class="fa fa-globe"></i> 归档
-                </a>
-              
-            </li>
-          
-            
-            
-              
-            
-            <li class="nav-item ">
-              
-              
-                <a href="https://liebao117.github.io/blog/tags/" target="_self">
-                  <i class="fa fa-globe"></i> 标签
-                </a>
-              
-            </li>
-          
-            
-            
-              
-            
-            <li class="nav-item ">
-              
-              
-                <a href="https://liebao117.github.io/blog/post/about/" target="_self">
-                  <i class="fa fa-globe"></i> 关于
-                </a>
-              
-            </li>
-          
-          
-            
-              <li class="nav-item ">
-                <a href="/friends/" target="_self">
-                  
-                    <i class="fa fa-address-book"></i> 友情链接
-                  
-                </a>
-              </li>
-            
-          
-        </ul>
-      </nav>
     </div>
-  </header>
-</div>
-
-<script type="text/javascript"> 
- 
-  let showNav = true;
-
-  let navToggle = document.querySelector('#nav_toggle'),
-  siteNav = document.querySelector('#site_nav');
-  
-  function navClick() {
-    let sideBar = document.querySelector('.sidebar');
-    let navUl = document.querySelector('#nav_ul');
-    navToggle.classList.toggle('nav-toggle-active');
-    siteNav.classList.toggle('nav-menu-active');
-    if (siteNav.classList.contains('nav-menu-active')) {
-      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
-    } else {
-      siteNav.style = "";
-    }
-  }
-
-  navToggle.addEventListener('click',navClick);  
-</script>
-  </div>
-  <div class="main-continer">
-    
-    <div
-      class="section-layout gemini ">
-      <div class="section-layout-wrapper">
-        
-
-<div class="sidebar">
-  
-    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+    <div>
       
-        <div class="post-list-sidebar">
-          <div class="sidebar-title">
-            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
-            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
-          </div>
-        </div>
+        
+          <a href="https://liebao117.github.io/blog" class="site-nav">
+            首页
+          </a>
+        
       
-      <div class="sidebar-body gemini" id="sidebar_body">
         
-          
+          <a href="https://liebao117.github.io/blog/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://liebao117.github.io/blog/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="https://liebao117.github.io/blog/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://liebao117.github.io/blog/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">耐心点</h2>
+            <div class="post-date">2021-05-07</div>
             
-<div class="sidebar-wrapper box-shadow-wrapper bg-color">
-  <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="/images/avatar.png"/>
-    <p class="site-author-name">117</p>
-    
-  </div>
-  <div class="sidebar-item side-item-stat right-motion">
-    <div class="sidebar-item-box">
-      <a href="/archives/">
-        
-        <span class="site-item-stat-count">5</span>
-        <span class="site-item-stat-name">文章</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="">
-        <span class="site-item-stat-count">0</span>
-        <span class="site-item-stat-name">分类</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="/tags/">
-        <span class="site-item-stat-count">0</span>
-        <span class="site-item-stat-name">标签</span>
-      </a>
-    </div>
-  </div>
-  
-    
-      <div class="sidebar-item">
-        <span class="site-item-rss">
-            <i class="fa fa-rss"></i>
-            <a href="https://liebao117.github.io/blog/atom.xml" target="_blank">RSS</a>
-        </span>
-      </div>
-    
-  
-  
-
-
-</div>
-          
-        
-      </div>
-    </div>
-  
-</div>
-<script>
-  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
-  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
-  const SLIDE_UP_IN = 'slide-up-in';
-
-  let sidebar = document.querySelector('#sidebar'),
-  tocSideBar = document.querySelector('#tocSideBar'),
-  metaSideBar = document.querySelector('#metaSideBar'),
-  postToc = document.querySelector('#post_toc'),
-  postSiteMeta = document.querySelector('#post_side_meta'),
-  sidebarTitle = document.querySelector('.sidebar-title'),
-  sidebarBody = document.querySelector('#sidebar_body');
-
-  tocSideBar && tocSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  metaSideBar && metaSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  function toggleSidebar(e) {
-    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
-    if (currentTitle == e.srcElement) {
-      return ;
-    }
-    let current, showElement, hideElement;
-    if (e.srcElement == metaSideBar) {
-      showElement = postSiteMeta;
-      hideElement = postToc;
-    } else if (e.srcElement == tocSideBar){
-      showElement = postToc;
-      hideElement = postSiteMeta;
-    }
-    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
-    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
-
-    window.Velocity(hideElement, 'stop');
-    window.Velocity(hideElement, 'transition.slideUpOut', {
-      display: 'none',
-      duration: 200,
-      complete: function () {
-        window.Velocity(showElement, 'transition.slideDownIn', {
-          duration: 200
-        });
-      }
-    })
-    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
-    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
-  }
-
-  postToc && postToc.addEventListener('transitionend', function() {
-    this.classList.remove(SLIDE_UP_IN);
-  });
-
-  if (sidebarBody) {
-    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
-      let hasFix = false;
-      let scrollEl = document.querySelector('.main-continer');
-      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
-      window.addEventListener('scroll', function(e) {
-        if (document.scrollingElement.scrollTop >= limitTop) {
-          if (!hasFix) {
-            sidebar.classList.add('sidebar-fixed');
-            hasFix = true;
-          }
-        } else {
-          if (hasFix) {
-            sidebar.classList.remove('sidebar-fixed');
-            hasFix = false;
-          }
-        }
-      });
-    }
-  }
-  
-</script>
-        <div class="section-box box-shadow-wrapper">
-          <div class="section bg-color post post-page">
-            <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://liebao117.github.io/blog/post/nai-xin-dian/">
-      耐心点
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2021-05-07</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>1257<span class="pc-show">字数</span></span>
-    </span>
-    
-    
-    
-    <span id="/blog/post/nai-xin-dian/" data-flag-title="耐心点" class="meta-item pc-show leancloud_visitors">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-eye"></i>
-      <span>浏览量：<span class="leancloud-visitors-count"></span></span>
-    </span>
-    
-  </div>
-</header>
-            <div class="post-body next-md-body" id="post_body">
+            <div class="post-content" v-pre>
               <p>我后来弄明白的一件事是，通常地（至少在硅谷科技界是如此），杰出的人会有大成果。你必须要有耐性。20年前，我职业生涯刚开始时，每个我遇到的人，我盯着他们然后说，”哇，那个男孩或女孩超级能干——如此聪明且专注“...他们全部，几乎不出意外，都变得非常成功。你必须要给他们足够的时间。这些不会发生在你想要或他们想要的时间段，但它确实发生了。4<br>
 运用特殊知识要带杠杆，最后，你会得到你应得的。<br>
 这需要时间——要把这些碎片都拼齐，你无法确定要投入多少时间。如果你不断在计算，你将会在成功到来之前就失去耐性了。<br>
@@ -360,532 +123,73 @@
 令人讶异的是许多人把财富和智慧混为一谈。</p>
 
             </div>
-            <div class="post-footer">
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-      <strong>本文作者：</strong>
-      117
-    </li>
-    <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://liebao117.github.io/blog/post/nai-xin-dian/" title="耐心点">https://liebao117.github.io/blog/post/nai-xin-dian/</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong>
-      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-  <div class="tags">
-    
-  </div>
-  <div class="nav">
-    <div class="nav-prev">
-      
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="20210509" href="https://liebao117.github.io/blog/post/20210509/">20210509</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="20210509" href="https://liebao117.github.io/blog/post/20210509/">上一篇</a>
-      
-    </div>
-    <div class="nav-next">
-      
-        <a class="nav-pc-next" title="找到杠杆点" href="https://liebao117.github.io/blog/post/zhao-dao-gang-gan-dian/">找到杠杆点</a>
-        <a class="nav-mobile-next" title="找到杠杆点" href="https://liebao117.github.io/blog/post/zhao-dao-gang-gan-dian/">下一篇</a>
-        <i class="fa fa-chevron-right"></i>
-      
-    </div>
-  </div>
-</div>
             
-  
-    
-      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://liebao117.github.io/blog/post/zhao-dao-gang-gan-dian/">
+                  <h3 class="post-title">
+                    找到杠杆点
+                  </h3>
+                </a>
+              </div>
+            
 
-<div id="gitalk-container"></div>
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
 
-<script>
-  var gitalk = new Gitalk({
-    clientID: '7832a862d75d2facf21d',
-    clientSecret: '1b564653e07ebe7a2038460e35a41ed97c3c4cd1',
-    repo: 'liebao117.github.io',
-    owner: 'liebao117',
-    admin: ['liebao117'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-  gitalk.render('gitalk-container')
-</script>
-    
-    
-  
+              
+            
 
           </div>
+
         </div>
       </div>
     </div>
-    <div class="footer-box">
-  <footer class="footer">
-    <div class="copyright">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By <a href="https://github.com/hsxyhao/gridea-theme-next" target="_blank">HsxyHao</a>
-    </div>
-    <div class="poweredby">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-    </div>
-  </footer>
-  
-  
-  <div class="gemini back-to-top" id="back_to_top">
-    <i class="fa fa-arrow-up"></i>
-    
-    <span class="scrollpercent">
-      <span id="back_to_top_text">0</span>%
-    </span>
-    
-  </div>
-  
-  
-  
-</div>
-<script>
 
-  let sideBarOpen = 'sidebar-open';
-  let body = document.body;
-  let back2Top = document.querySelector('#back_to_top'),
-  back2TopText = document.querySelector('#back_to_top_text'),
-  drawerBox = document.querySelector('#drawer_box'),
-  rightSideBar = document.querySelector('.sidebar'),
-  viewport = document.querySelector('body');
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
 
-  function scrollAnimation(currentY, targetY) {
-   
-    let needScrollTop = targetY - currentY
-    let _currentY = currentY
-    setTimeout(() => {
-      const dist = Math.ceil(needScrollTop / 10)
-      _currentY += dist
-      window.scrollTo(_currentY, currentY)
-      if (needScrollTop > 10 || needScrollTop < -10) {
-        scrollAnimation(_currentY, targetY)
-      } else {
-        window.scrollTo(_currentY, targetY)
-      }
-    }, 1)
-  }
+AOS.init();
 
-  back2Top.addEventListener("click", function(e) {
-    scrollAnimation(document.scrollingElement.scrollTop, 0);
-    e.stopPropagation();
-    return false;
-  });
-  
-  window.addEventListener('scroll', function(e) {
-    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
-    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
-      back2Top.classList.add('back-top-active');
-    }
-    if (percent == 0) {
-      back2Top.classList.remove('back-top-active');
-    }
-    if (back2TopText) {
-      back2TopText.textContent = Math.floor(percent);
-    }
-  });
-
-  
-  let hasCacu = false;
-  window.onresize = function() {
-    if (window.width > 991) {
-      calcuHeight();
-    } else {
-      hasCacu = false;
-    }
-  }
-
-  function calcuHeight() {
-    // 动态调整站点概览高度
-    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
-      let sideBar = document.querySelector('.sidebar');
-      let navUl = document.querySelector('#site_nav');
-      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
-      hasCacu = true;
-    }
-  }
-  calcuHeight();
-  
-  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
-
-  if (drawerBox) {
-    let rightMotions = document.querySelectorAll('.right-motion');
-    let right = drawerBox.classList.contains('right');
-
-    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
-
-    let openProp, closeProp;
-    if (right) {
-      openProp = {
-        paddingRight: RIGHT_MOVE_DIS 
-      };
-      closeProp = {
-        paddingRight: '0px'
-      };
-    } else {
-      openProp = {
-        paddingLeft: RIGHT_MOVE_DIS 
-      };
-      closeProp = {
-        paddingLeft: '0px'
-      };
-    }
-
-    drawerBox.onclick = function() {
-      open = !open;
-      window.Velocity(rightSideBar, 'stop');
-      window.Velocity(viewport, 'stop');
-      window.Velocity(rightMotions, 'stop');
-      if (open) {
-        window.Velocity(rightSideBar, {
-          width: RIGHT_MOVE_DIS
-        }, {
-          duration: MOTION_TIME,
-          begin: function() {
-            window.Velocity(rightMotions, transitionDir,{ });
-          }
-        })
-        window.Velocity(viewport, openProp,{
-          duration: MOTION_TIME
-        });
-      } else {
-        window.Velocity(rightSideBar, {
-          width: '0px'
-        }, {
-          duration: MOTION_TIME,
-          begin: function() {
-            window.Velocity(rightMotions, {
-              opacity: 0
-            });
-          }
-        })
-        window.Velocity(viewport, closeProp ,{
-          duration: MOTION_TIME
-        });
-      }
-      for (let i = 0; i < drawerBox.children.length; i++) {
-        drawerBox.children[i].classList.toggle('muse-line');
-      }
-      drawerBox.classList.toggle(sideBarOpen);
-    }
-  }
-
-  // 链接跳转
-  let newWindow = 'false'
-  if (newWindow === 'true') {
-    let links = document.querySelectorAll('.post-body a')
-    links.forEach(item => {
-      if (!item.classList.contains('btn')) {
-        item.setAttribute("target","_blank");
-      }
-    })
-  }
-  // 代码高亮
-  hljs.initHighlightingOnLoad();
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
-    <div class="light-box" id="light_box"></div>
-<script>
-  let imgs = document.querySelectorAll('.post-body img');
-  let lightBox = document.querySelector('#light_box');
-  lightBox.addEventListener('mousedown', (e) => {
-    e.preventDefault()
-  })
-  lightBox.addEventListener('mousewheel', (e) => {
-    e.preventDefault()
-  })
-  let width = window.innerWidth * 0.8;
-  lightBox.onclick = () => {
-    let img = lightBox.querySelector('img');
-    lightBox.style = '';
-    img && img.remove();
-  }
-  imgs.forEach(item => {
-    item.onclick = function (e) {
-      let lightImg = document.createElement('img');
-      lightImg.src = this.src;
-      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
-      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
-      lightImg.onclick = function () {
-        lightBox.style = '';
-        this.remove();
-      }
-      lightBox.append(lightImg);
-    }
-  })
-</script>
-  </div>
-</body>
-<input hidden id="copy" />
-<script>
-  //拿来主义(真香)^_^，Clipboard 实现摘自掘金 https://juejin.im/post/5aefeb6e6fb9a07aa43c20af
-  window.Clipboard = (function (window, document, navigator) {
-    var textArea,
-      copy;
-
-    // 判断是不是ios端
-    function isOS() {
-      return navigator.userAgent.match(/ipad|iphone/i);
-    }
-    //创建文本元素
-    function createTextArea(text) {
-      textArea = document.createElement('textArea');
-      textArea.value = text;
-      textArea.style.width = 0;
-      textArea.style.height = 0;
-      textArea.clientHeight = 0;
-      textArea.clientWidth = 0;
-      document.body.appendChild(textArea);
-    }
-    //选择内容
-    function selectText() {
-      var range,
-        selection;
-
-      if (isOS()) {
-        range = document.createRange();
-        range.selectNodeContents(textArea);
-        selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-        textArea.setSelectionRange(0, 999999);
-      } else {
-        textArea.select();
-      }
-    }
-
-    //复制到剪贴板
-    function copyToClipboard() {
-      try {
-        document.execCommand("Copy")
-      } catch (err) {
-        alert("复制错误！请手动复制！")
-      }
-      document.body.removeChild(textArea);
-    }
-
-    copy = function (text) {
-      createTextArea(text);
-      selectText();
-      copyToClipboard();
-    };
-
-    return {
-      copy: copy
-    };
-  })(window, document, navigator);
-
-  function copyCode(e) {
-    if (e.srcElement.tagName === 'SPAN' && e.srcElement.classList.contains('copy-code')) {
-      let code = e.currentTarget.querySelector('code');
-      var text = code.innerText;
-      if (e.srcElement.textContent === '复制成功') {
-        console.log('复制操作频率过高');
-        return;
-      }
-      e.srcElement.textContent = '复制成功';
-      (function (elem) {
-        setTimeout(() => {
-          if (elem.textContent === '复制成功') {
-            elem.textContent = '复制代码'
-          }
-        }, 1000);
-      })(e.srcElement)
-      Clipboard.copy(text);
-    }
-  }
-
-  let pres = document.querySelectorAll('pre');
-  pres.forEach(pre => {
-    let code = pre.querySelector('code');
-    let copyElem = document.createElement('span');
-    copyElem.classList.add('copy-code');
-    copyElem.textContent = '复制代码';
-    pre.appendChild(copyElem);
-    pre.onclick = copyCode
-  })
-</script>
-<script src="/media/js/motion.js"></script>
-
-<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-<script>
-  var scroll = new SmoothScroll('a[href*="#"]', {
-    speed: 500
-  });
-</script>
-
-<!-- <div class="search-mask" id="search_mask">
-  <div class="search-box">
-    <div class="search-title">
-      <i class="fa fa-search"></i>
-      <div class="input-box">
-        <input type="text" placeholder="搜索">
-      </div>
-      <i class="fa fa-times-circle"></i>
-    </div>
-    <div class="result">
-      
-      <div class="item">
-        <a class="result-title" href="https://liebao117.github.io/blog/post/20210509/"" data-c="
-          &lt;p&gt;天气热&lt;/p&gt;
-">20210509</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://liebao117.github.io/blog/post/nai-xin-dian/"" data-c="
-          &lt;p&gt;我后来弄明白的一件事是，通常地（至少在硅谷科技界是如此），杰出的人会有大成果。你必须要有耐性。20年前，我职业生涯刚开始时，每个我遇到的人，我盯着他们然后说，”哇，那个男孩或女孩超级能干——如此聪明且专注“...他们全部，几乎不出意外，都变得非常成功。你必须要给他们足够的时间。这些不会发生在你想要或他们想要的时间段，但它确实发生了。4&lt;br&gt;
-运用特殊知识要带杠杆，最后，你会得到你应得的。&lt;br&gt;
-这需要时间——要把这些碎片都拼齐，你无法确定要投入多少时间。如果你不断在计算，你将会在成功到来之前就失去耐性了。&lt;br&gt;
-每个都想立即变得富有，但世界是一个有效率的地方。立刻是不起作用的。你必须要投入时间去做。你必须投时间去做，所以我才认为你必须把你自己放在这样的位置——有特殊知识的、有责任的、有杠杆作用的，要你的真才实学的，你能把事情做到世界最好的。&lt;br&gt;
-你必须乐在其中，并继续做，继续做，继续做下去。不要去追踪，不要去计算，因为一旦你这样做了，你的时间就会不够。78&lt;br&gt;
-我听到最多的坏建议是：”你太年轻了。“大多数历史都是年轻人创造的（或译：英雄出少年）。当他们老时就只有存款了。真正学到东西的唯一途径是通过实践。当然，要留心听指导。但不要等待。3&lt;br&gt;
-人是出奇的一致。你会有因果的，重复你的模式、美德和缺陷直到你最后得到你应得的。&lt;br&gt;
-一定要付之行动。而且不要去数。&lt;br&gt;
-这不是说它容易。它是不容易的。实际上它是十分困难的。这将是你要做的最困难的事。但它也是有回报的。看看那些出身富贵的孩子——他们的生活没有意义。&lt;br&gt;
-你真实的履历只是你痛苦的目录。如果我要求你去描述你真实的生活，在你临终之际回顾你所做过的有趣的事，肯定是那些你有所牺牲的事，那些你做过的困难事。&lt;br&gt;
-然而，给你的任何的东西都是不重要的。你有四肢、智力、头脑、皮肤——这是理所当然的。你必须要去做困难事来创造你生活的意义。赚钱是一个好选择。去奋斗吧。它是困难的。我不会说它是容易的。它是真的困难，但这些工具都是可用的。都在外面。77&lt;br&gt;
-在物质世界里，钱能帮你买到自由。它没法让你快乐，它不会解决你的健康问题，它没法让你的家庭和睦，它没法帮你减肥，它没法让你冷静。但它能解决许多外部问题。这是一个继续赚钱的合理步骤。10&lt;br&gt;
-赚钱能解决你的金钱问题。它能帮你清除一些阻碍你快乐的事情，但它本身无法使你快乐。我知道许多非常不快乐的富人。大多数时候，能赚钱的人是一个高度焦虑、压力很大、工作努力、有竞争力的人。当你已经做了20年、30年、40年、50年，突然变得赚到钱，你会无法控制自己。你已经把自己训练成了一个高度焦虑的人。那样，你必须要学会如何使自己快乐。11&lt;br&gt;
-让我先来帮你致富。这方面我是非常务实的，因为，你知道的，佛祖曾经是一个王子。他开始是真的富有，然而他去了深林之中。&lt;br&gt;
-在以前，如果你想内心平和，你会成为一个佛陀。你将放弃所有东西，放弃性生活、孩子、金钱、政治、科学、技术、所有的一切，然后独自进入深林清修。你必须放弃所有，才获得内心的自由。&lt;br&gt;
-在今天，有了一样叫金钱的奇妙发现，你可以用一个银行账户把它存起来。你可以用尽全力工作，为社会做些伟大的事，社会会为这些它想要但不知如何获得的东西而付钱给你。你可以省钱，你可以过着量入为出的生活，你可以找到确定的自由。&lt;br&gt;
-这样你就有时间和精力去追求你内心的平静和幸福。我相信让每个人快乐的解决方案是给他们想要的东西。&lt;br&gt;
-让他们所有都富起来吧。&lt;br&gt;
-让他们都身体健康吧。&lt;br&gt;
-最后，让他们都快乐起来吧。77&lt;br&gt;
-令人讶异的是许多人把财富和智慧混为一谈。&lt;/p&gt;
-">耐心点</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://liebao117.github.io/blog/post/zhao-dao-gang-gan-dian/"" data-c="
-          &lt;p&gt;我们生活在一个无限杠杆的时代，对于真正的求知欲的经济回报超越以往。11追随你心中真正的求知欲，比追逐任何现在能赚钱的东西，更为你的事业打下好基础。11&lt;br&gt;
-奇怪的是，只有你知道或只有一部分人知道的知识将会从你的激情和兴趣中产生。如果你对自己的好奇心有强烈的兴趣，你将更有可能产生这些激情。1&lt;br&gt;
-如果现在能使你快乐的，但将来会让你感到的厌烦的，这就会让你的注意力分散。继续看下去吧。&lt;br&gt;
-我只是真正想为自己的目标而做事。这是一种对艺术的定义。无论是生意、健身、恋爱、友谊，还是其它的，我认为生命的意义是为自己的目标而做事。很讽刺的是，当你为自己而做事时，你能创造出你最好的作品。即使你做这些是为了赚钱，但实际上你也将会是最成功的。&lt;br&gt;
-我赚钱最多的那一年，其实是我最不努力、对未来忧虑最少的一年。我做事情多是为了纯粹的乐趣。基本上，我是在告诉别人：”我退休了，我不工作了。“然后，我就有时间去做那些摆在我面前的最有价值的项目。通过为自己的目标做事，我尽力把它们做到最好。74&lt;br&gt;
-不想要的东西，就少去想它，少被它困扰，更多的是以顺其自然的方式做下去。越是为了你自己而做。你就会用你擅长的方式去做，同时会坚持做下去。你周围的人会看出你的工作质量更高。1&lt;br&gt;
-追随你真正的好奇心，而不是时下的热点事物。如果你的好奇心把你带到一个社会最终也会去的地方，你将会获得丰厚的报酬。3&lt;br&gt;
-你更有可能拥有的技能是社会上别人尚无法通过培训学会的技能。如果其他人也能通过训练学会时，那么他们就能替代你了。如果他们能替代你，他们就不会再支付你更多钱了。你要注意的是，在社会对这些技能有需求时，如何做一些别人还不知道怎么做的事情。1&lt;br&gt;
-如果他们能训练你们去做，那么他们接下来也会训练计算机去做。&lt;br&gt;
-因为你向社会提供了它想要但从无法从其它地方得到的东西，所以你会得到社会的回报。许多人会认为，可以去学校学习如何赚钱，但真实情况是，没有一门叫”生意“的技能。1&lt;br&gt;
-多想下，社会需要那些暂时无法提供的产品或服务。你要成为能规模化提供这些产品或服务的人。这才是如何赚钱的真正难题。&lt;br&gt;
-现在，问题是无论”它“是什么，都要成为擅长的。它会一代一代地传下去，但绝大多数是技术方面的东西。&lt;br&gt;
-你正在等待属于你的时机，世界展现一些东西的时候，他们需要一个相关的技能集，而你正好是唯一符合条件的。同时，你可以通过赠送免费工作在Twitter上、YouTube上建立自己的品牌。你让自己成名，并在这个过程承担一些风险。当机会来的时候要抓紧，并且你要尽可能利用最大的杠杆来做这些。1&lt;br&gt;
-杠杆有三大类：&lt;br&gt;
-一类杠杆是人力——让其它人为你工作。这是最古老的杠杆类型，然而在现代社会这不是一个最大的杠杆。1我认为这是最差的杠杆形式。管理他人是极其混乱的。它需要卓越的领导才能。你离被人背叛、被人吃掉、被人撕碎只有一步之遥。78&lt;br&gt;
-一类比较好的杠杆是金钱。意味着你每次做出决定时，都会用钱与之相乘。1资本是一类比较难使用的杠杆。它相对来说更现代。在上个世纪，有人用它获得了大财富。它可能是上个世纪最主要的杠杆类型。&lt;br&gt;
-这些你可以通过观察那些最富有的人就能发现。那些银行家、腐败国家的政客，他们既是能印钱的人，也是能大规模转移金钱的人。如果看下那些大公司的高层，当然科技公司除外，就会发现在很多很多那些老的大公司里，他们CEO的工作实质是财务性的工作。&lt;br&gt;
-它的规模是非常非常大的。如果你善于管理资本，你就可以管理越来越多的资本，这比管越来越多的人更容易。78&lt;br&gt;
-最后一类杠杆是全新的——也是最民主的一类。它是：”没有边际复制成本的产品。“这些包括书籍、媒体、电影和代码。代码是最强大且无需许可的一种杠杆。你只需要一台电脑——你不需要任何人的许可。1&lt;br&gt;
-忘掉富人或穷人，白领或蓝领。现在是有杠杆还是没杠杆。&lt;br&gt;
-最有意思和最重要的杠杆类型是，没有边际复制成本的产品概念。这是新的杠杆类型。这是在最近几百年才被发明的。它开始于印刷机。广播媒体加速了它的发展，现在随着互联网和编程的发展，它得到了爆炸性的成长。现在，你不需要他人的协助和金钱支持，也能放大自身的努力了。&lt;br&gt;
-这本书就是一种杠杆的形式。在以前，我可能在演讲厅里给你们每个人讲课。那样做也许能接触到几百人，但也就如此了。78（译者注：书能让更多人看到）&lt;br&gt;
-这种新型的杠杠是所有新财富，所有新亿万富翁出现的来源。在上一代中，财富是由资本创造的。创造财富的人是世界各地类似沃伦.巴菲特的那类人。&lt;br&gt;
-但新生代的财富是通过代码或媒体创造的。乔.罗根通过他的博客一年能赚五千万到一亿美元。你也会有类似PewDiePie的网络频道。我不知道他赚了多少钱，但肯定比新闻里说的更多。当然，还有杰夫.贝佐斯、马克.扎克伯格、拉里.佩奇、谢尔盖.布林、比尔.盖茨和史蒂夫.乔布斯。他们的财富都是基于代码的杠杠。78&lt;br&gt;
-关于这种新型的杠杆，最有趣的是它是无需他人许可的。你可以使用它们取得成功，不需要其他人的许可。然而人力杠杆，必须需要有人决定跟随你。资本杠杆的话，必须有人给钱你去投资或给钱你去制作产品。&lt;br&gt;
-编码、写书、录制播客、推特、发油管——这些事情都是无需许可的。你不需要任何人的批准就可以做这些事，这也是我说它们是人人平等的原因。它们是很好的杠杆器。78比如，每一个伟大的软件开发者，现在都有机器人大军在晚上睡觉时依然为他工作，这一切发生在他写完代码之后。78&lt;br&gt;
-你永远无法通过出租你的时间致富。&lt;br&gt;
-生活中，无论何时，都尽可能为了独立（或可译为：摆脱依赖）而努力，而不是为了薪酬。如果你有独立性，应该对你的产出结果负责，而不是对所投入的负责——那才是梦想。10&lt;br&gt;
-人类是在没有杠杠的社会中进化的。如果我为你劈柴或者提水，你知道8个小时的投入就等于8个小时的产出。现在我们发明了杠杆——通过资本、合作、技术、生产力等手段。我们生活在一个杠杆化的时代。作为一名工作者，你要尽可能利用杠杆，这样你不需要付出太多的时间和精力就能产生大影响。&lt;br&gt;
-一个用杠杆的工作者，可以比不用杠杆的工作者的生产效率高出成千上万倍。对于一个杠杆工作者来说，判断力远比他们投入更多时间或工作有多努力更加重要。&lt;br&gt;
-忘记效能放大10倍的程序员吧。能放大1000倍的程序员是真的存在，我们只是没有去完全承认罢了。看看约翰.卡马克（@ID_AA_Carmack、游戏开发者）、马库斯·佩尔松（@Notch、《我的世界》游戏的设计者）、中本聪（比特币的创造者），等等。&lt;br&gt;
-举个例子来说，一个优秀的软件工程师，仅是通过编写一段正确的代码和创造一个正确的小应用程序，就可以逐步为公司创造5亿美元的价值。但十个软件工程师付出十倍的努力，仅是因为他们选了错误的模式，错误的产品，写了错误的方法，或者是投入到错误的病毒循环，基本上就是在浪费他们的时间。投入和产出不是匹配的，尤其是对使用杠杆的工作者来说。&lt;br&gt;
-你在生活中想要的是能掌控自己的时间。你想要进入一个杠杆式的工作，在这个工作中，你能掌控自己的时间，并能对自己的产出进行跟踪。如果你做了一些极好的事情来推动生意，他们就必须要付钱给你。特别是他们不知道你是如何做到的，这或许是因为你的执著、你的技术或你天生的能力，总之，他们必须继续付钱让你去做。&lt;br&gt;
-如果你有特殊知识，你有责任心，你有杠杆，他们就必须要为你的价值付费。如果他们为你的价值付费，然而你能节省自己的时间——你可以超高效地工作。你不会为了开会而开会，你不会试图让人留下好印象，你也不会为了让人觉得你做了工作而把事情写下来。你关注的是实际工作本身。&lt;br&gt;
-当你只做最本质的工作时，你会更多产，更有效率。你会在你有感觉、精力充沛的时候工作，而不会在精力不足时再尝试去挣扎。你将赢回你的时间。&lt;br&gt;
-每周工作40小时是工业时代的残留物。知识工作者的作用就像运动员一样——训练和冲刺，然后就是休息和重新评估。&lt;br&gt;
-销售就是一个例子——特别是高端销售。如果你是一个在外面卖房子的房产中介，这肯定不是一份好工作。那是非常拥挤的。但如果你是一个顶级的房产中介，你知道如何营销自己，你知道怎样去卖房子，当别人用尽全力在卖10万美元的公寓或套房时，你可能只用十分之一的时间就能卖出500万美元的豪宅。房产中介是一种投入和产出不同比的工作。&lt;br&gt;
-建造任何产品和销售任何产品都符合该描述。那么从根本来说，还有其它的吗？你不一定想成为一个配角，比如客服。很不幸的是，在客服工作投入和产出是紧密关联的，你所投入的时间很重要。10&lt;br&gt;
-工具和杠杆是导致投入和产出不成正比的原因。一个创造力越高的职业，引起的投入和产出差距就有可能越大。如果你找的职业是投入和产出高度关联的，你就很难为自己创造财富以致富。78&lt;br&gt;
-如果你想成为一家伟大科技公司的一份子，你就需要会销售或者建造。如果两样都不会，那就赶紧去学习吧。&lt;br&gt;
-学会销售，学会建造。如果两样都会，那你将势不可挡。&lt;br&gt;
-这是两个大类。一个是打造产品。这是困难和多元的。它包括了设计；它包括了开发；它包括了制造、物流、采购；它甚至可以是设计和运营一项服务。它有许多许多的定义。&lt;br&gt;
-在不同的行业里，对建设者有不同的定义。在我们科技界，是首席技术官、是程序员、也可能是软件工程师或硬件工程师。但在洗衣行业里，他可能是创立洗衣服务的人，是确保次序正常运转的人，是确保所有衣服在正确的时间出现在正确的地点的人，等等这些。&lt;br&gt;
-另一方面是销售。销售也同样有非常多的定义。销售不只是意味着向单个客户出售产品，也可能是营销，也可能是交际，也可能是招聘，也可能是筹集资金，也可能是鼓舞他人，也可能是搞公关。这是一个非常广泛的类别。78&lt;br&gt;
-靠你的头脑去赚钱，而不是靠你的时间。&lt;br&gt;
-让我们来谈谈房地产行业。最差的工作是那些靠人力帮人修补房子的。也许每小时你能得到10到20美元的工资。你的老板会要求你早上8点就到达现场，并开始修理房子。这样做，你的杠杆为零。你有些不是真正的责任，因为你只用对你的老板负责，而不用对客户负责。你没有任何特殊知识，自从你开始做这些很多人都能做的体力活。你能得到的报酬不会太多。&lt;br&gt;
-你能拿到最低的工资，加上一点点对你技能和时间的报酬。&lt;br&gt;
-下一层级可能是为业主修房子的总承包商。他们做完这个工程可能会得到5万美元，然后是按每小时15美元给工人付工资，他们就能赚中间的差额。&lt;br&gt;
-总承包商看起来比上一种工作更好。但我们是怎么衡量的呢？我们是怎么知道他更好的呢？这样说吧，我知道他更好是因为他承担了一些责任。他们对最终的结果负责，如果事情不能顺利进行，晚上他们就该焦虑了。承包商通过雇佣工人为他工作而产生了杠杆作用。他们也有一些特殊的知识：如何组建团队，如何确保工人准时开工，以及知道如何处理相关的法律问题。&lt;br&gt;
-再下一个层级可能是房地产开发商。开发商要买下一处地产，然后雇佣一群承包商，把它改造成更高价值的东西。他们可能要贷款去买房，或者找投资者筹集资金。他们买入旧房子，拆掉重建，然后再卖出去。开发商不像承包商那样只能拿5万美元，也不像工人那样每个小时只有15美元，而是以比买入房子和改造房子的总成本更高的价格卖出房子，可能从中赚50到100万美元的利润。但现在要注意的是，对开发商的要求是：要承担更高的责任。&lt;br&gt;
-开发商承担了更多的风险，更多的责任，也有了更大的杠杆，也就需要有更多的特殊知识。他们需要知道如何筹款，弄清楚法律法规，判断房地产市场的走向，也要想是否需要冒险。这是更困难的。&lt;br&gt;
-再下一个层级就可能是房地产基金管理人。他们有巨大的资本杠杆。他们会和很多房地产开发商打交道，他们会囤积大量的房屋。74&lt;br&gt;
-超越这个层次的人会说：“实际上，我想在这个市场中运用最大的杠杆，最大化特殊知识。”这个人会说，“我了解房地产的方方面面，从基本的房屋建设，到房产物业和房产销售，再到房地产市场走势，同时也了解技术业务。我懂怎样去招聘开发人员，如何编写代码，知道如何去打造一个好产品，以及我还懂得怎么从风险投资者手中获得资金，如何去获得回报，最后还知道所有这些是怎么起作用的。”&lt;br&gt;
-那是明显的，一个人是很难知道所有这些的。你也许要拉一个团队去做这个，团队成员拥有不同的技能，但他们结合在一起的时候就会有关于技术和房地产方面的特殊知识。它将有极大的责任，因为公司的名字将一直有非常高风险、高回报的努力灌注其中，人们会承担风险把他们的生活奉献其中。里面有开发者们有杠杆的代码。有投资人投入的资本和创始人自己的资本。也会有一些你能找到的高质量的人才为这家公司工作，如高质量的工程师、设计师和营销人员。&lt;br&gt;
-要是这样，你最终也许会选择Trulia、Redfin、Zillow这样的公司，那么升值潜力有可能是数十亿美元，或数亿美元。78&lt;br&gt;
-往上的每一个层级杠杆在增加，责任也在增加，所需的特殊知识也越多。你在人力杠杆的基础上，加入了金钱杠杆。在金钱和人力的又加入了代码杠杆，事实上这允许你创造越来越大的东西，越来越接近价值的上限，而不是只能领工资。&lt;br&gt;
-你的起点是一个领薪水的打工人。但你想努力工作去尝试获得高杠杆、更多的责任和特殊知识。一直以来，这些与复利大法结合会使你变得更富有。74&lt;br&gt;
-你必须避免的事是破产风险。&lt;br&gt;
-避免破产就意味着不会坐牢。所以，不要干任何违法的事。穿橙色连体衣（译者注：美国囚犯衣服）是不值得的。远离根本性的损失（或译：避免永久性损失）。避免破产也就意味着远离肉体上的危险或会伤害身体的事情。你必须关注自身的健康。&lt;br&gt;
-远离那些事会导致你失去所有资本和所有积蓄的事情。不要做孤注一掷的事情。相反，要理性乐观地押注潜力大的东西。78&lt;/p&gt;
-">找到杠杆点</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://liebao117.github.io/blog/post/lesslessren-wei-greatergreater/"" data-c="
-          &lt;p&gt;&lt;img src=&#34;https://liebao117.github.io/blog/post-images/1620372073106.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
-　　认为，到底应该如何实现。 我认为， 经过上述讨论一般来说， 认为的发生，到底需要如何做到，不认为的发生，又会如何产生。 经过上述讨论这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 带着这些问题，我们来审视一下认为。 那么， 那么， 问题的关键究竟为何? 文森特·皮尔曾经说过，改变你的想法，你就改变了自己的世界。这不禁令我深思认为，发生了会如何，不发生又会如何。 那么， 一般来说， 每个人都不得不面对这些问题。 在面对这种问题时， 我认为， 带着这些问题，我们来审视一下认为。 我们都知道，只要有意义，那么就必须慎重考虑。 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 王阳明曾经说过，故立志者，为学之心也；为学者，立志之事也。这不禁令我深思认为因何而发生?。&lt;br&gt;
-　　认为，发生了会如何，不发生又会如何。 杰纳勒尔·乔治·S·巴顿曾经说过，接受挑战，就可以享受胜利的喜悦。这不禁令我深思问题的关键究竟为何? 苏轼曾经说过，古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。这不禁令我深思认为的发生，到底需要如何做到，不认为的发生，又会如何产生。 认为的发生，到底需要如何做到，不认为的发生，又会如何产生。 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 那么， 既然如此， 总结的来说， 而这些并不是完全重要，更加重要的问题是， 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 了解清楚认为到底是一种怎么样的存在，是解决一切问题的关键。 每个人都不得不面对这些问题。 在面对这种问题时， 莎士比亚曾经说过，本来无望的事，大胆尝试，往往能成功。这不禁令我深思认为，发生了会如何，不发生又会如何。 所谓认为，关键是认为需要如何写。 每个人都不得不面对这些问题。 在面对这种问题时， 我们都知道，只要有意义，那么就必须慎重考虑。 问题的关键究竟为何? 带着这些问题，我们来审视一下认为。 认为的发生，到底需要如何做到，不认为的发生，又会如何产生。&lt;br&gt;
-　　每个人都不得不面对这些问题。 在面对这种问题时， 韩非曾经说过，内外相应，言行相称。这不禁令我深思在这种困难的抉择下，本人思来想去，寝食难安。 就我个人来说，认为对我的意义，不能不说非常重大。 我们都知道，只要有意义，那么就必须慎重考虑。 那么， 我认为， 在这种困难的抉择下，本人思来想去，寝食难安。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 斯宾诺莎曾经说过，最大的骄傲于最大的自卑都表示心灵的最软弱无力。这不禁令我深思问题的关键究竟为何? 我们都知道，只要有意义，那么就必须慎重考虑。 既然如何， 既然如何， 布尔沃曾经说过，要掌握书，莫被书掌握；要为生而读，莫为读而生。这不禁令我深思。&lt;br&gt;
-　　所谓认为，关键是认为需要如何写。 经过上述讨论既然如何， 史美尔斯曾经说过，书籍把我们引入最美好的社会，使我们认识各个时代的伟大智者。这不禁令我深思本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 所谓认为，关键是认为需要如何写。 歌德曾经说过，没有人事先了解自己到底有多大的力量，直到他试过以后才知道。这不禁令我深思每个人都不得不面对这些问题。 在面对这种问题时， 认为因何而发生?每个人都不得不面对这些问题。 在面对这种问题时， 要想清楚，认为，到底是一种怎么样的存在。 现在，解决认为的问题，是非常非常重要的。 所以， 在这种困难的抉择下，本人思来想去，寝食难安。 所谓认为，关键是认为需要如何写。&lt;br&gt;
-　　莫扎特曾经说过，谁和我一样用功，谁就会和我一样成功。这不禁令我深思带着这些问题，我们来审视一下认为。 一般来讲，我们都必须务必慎重的考虑考虑。 就我个人来说，认为对我的意义，不能不说非常重大。 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 一般来说， 迈克尔·F·斯特利曾经说过，最具挑战性的挑战莫过于提升自我。这不禁令我深思富兰克林曾经说过，你热爱生命吗？那么别浪费时间，因为时间是组成生命的材料。这不禁令我深思认为，发生了会如何，不发生又会如何。 带着这些问题，我们来审视一下认为。&lt;br&gt;
-　　认为，到底应该如何实现。 就我个人来说，认为对我的意义，不能不说非常重大。 德国曾经说过，只有在人群中间，才能认识自己。这不禁令我深思那么， 西班牙曾经说过，自己的鞋子，自己知道紧在哪里。这不禁令我深思我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 既然如何， 池田大作曾经说过，不要回避苦恼和困难，挺起身来向它挑战，进而克服它。这不禁令我深思要想清楚，认为，到底是一种怎么样的存在。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 在这种困难的抉择下，本人思来想去，寝食难安。 经过上述讨论我们不得不面对一个非常尴尬的事实，那就是， 吉姆·罗恩曾经说过，要么你主宰生活，要么你被生活主宰。这不禁令我深思培根曾经说过，要知道对好事的称颂过于夸大，也会招来人们的反感轻蔑和嫉妒。这不禁令我深思所谓认为，关键是认为需要如何写。 认为因何而发生?在这种困难的抉择下，本人思来想去，寝食难安。 既然如此， 问题的关键究竟为何? 那么， 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 所谓认为，关键是认为需要如何写。 而这些并不是完全重要，更加重要的问题是， 莎士比亚曾经说过，人的一生是短的，但如果卑劣地过这一生，就太长了。这不禁令我深思了解清楚认为到底是一种怎么样的存在，是解决一切问题的关键。 既然如此， 我们不得不面对一个非常尴尬的事实，那就是， 我认为， 认为，发生了会如何，不发生又会如何。 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 普列姆昌德曾经说过，希望的灯一旦熄灭，生活刹那间变成了一片黑暗。这不禁令我深思我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 歌德曾经说过，没有人事先了解自己到底有多大的力量，直到他试过以后才知道。这不禁令我深思现在，解决认为的问题，是非常非常重要的。 所以， 所谓认为，关键是认为需要如何写。 就我个人来说，认为对我的意义，不能不说非常重大。 总结的来说， 既然如何， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 那么， 问题的关键究竟为何? 现在，解决认为的问题，是非常非常重要的。 所以， 而这些并不是完全重要，更加重要的问题是， 我们不得不面对一个非常尴尬的事实，那就是， 认为，发生了会如何，不发生又会如何。&lt;br&gt;
-　　认为，到底应该如何实现。 认为，到底应该如何实现。 我们都知道，只要有意义，那么就必须慎重考虑。 亚伯拉罕·林肯曾经说过，你活了多少岁不算什么，重要的是你是如何度过这些岁月的。这不禁令我深思我认为， 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 培根曾经说过，要知道对好事的称颂过于夸大，也会招来人们的反感轻蔑和嫉妒。这不禁令我深思。&lt;br&gt;
-　　富勒曾经说过，苦难磨炼一些人，也毁灭另一些人。这不禁令我深思既然如何， 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 卡耐基曾经说过，一个不注意小事情的人，永远不会成就大事业。这不禁令我深思既然如何， 佚名曾经说过，感激每一个新的挑战，因为它会锻造你的意志和品格。这不禁令我深思我们不得不面对一个非常尴尬的事实，那就是， 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 富兰克林曾经说过，你热爱生命吗？那么别浪费时间，因为时间是组成生命的材料。这不禁令我深思认为因何而发生?既然如此， 认为，发生了会如何，不发生又会如何。 我认为， 每个人都不得不面对这些问题。 在面对这种问题时， 我们不得不面对一个非常尴尬的事实，那就是， 一般来讲，我们都必须务必慎重的考虑考虑。 认为，发生了会如何，不发生又会如何。 认为因何而发生?我们都知道，只要有意义，那么就必须慎重考虑。 我们不得不面对一个非常尴尬的事实，那就是， 郭沫若曾经说过，形成天才的决定因素应该是勤奋。这不禁令我深思我认为， 而这些并不是完全重要，更加重要的问题是， 带着这些问题，我们来审视一下认为。 认为，到底应该如何实现。 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 而这些并不是完全重要，更加重要的问题是， 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 认为，到底应该如何实现。 那么， 了解清楚认为到底是一种怎么样的存在，是解决一切问题的关键。 认为的发生，到底需要如何做到，不认为的发生，又会如何产生。 总结的来说， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 认为因何而发生?莎士比亚曾经说过，抛弃时间的人，时间也抛弃他。这不禁令我深思那么， 认为，发生了会如何，不发生又会如何。 总结的来说， 总结的来说， 屠格涅夫曾经说过，你想成为幸福的人吗？但愿你首先学会吃得起苦。这不禁令我深思我们都知道，只要有意义，那么就必须慎重考虑。 认为，到底应该如何实现。&lt;br&gt;
-　　那么， 每个人都不得不面对这些问题。 在面对这种问题时， 认为因何而发生?一般来说， 认为因何而发生?塞内加曾经说过，勇气通往天堂，怯懦通往地狱。这不禁令我深思认为因何而发生?一般来说， 认为，发生了会如何，不发生又会如何。 而这些并不是完全重要，更加重要的问题是， 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 认为的发生，到底需要如何做到，不认为的发生，又会如何产生。 那么， 那么， 每个人都不得不面对这些问题。 在面对这种问题时， 每个人都不得不面对这些问题。 在面对这种问题时， 认为，到底应该如何实现。 亚伯拉罕·林肯曾经说过，我这个人走得很慢，但是我从不后退。这不禁令我深思生活中，若认为出现了，我们就不得不考虑它出现了的事实。 所谓认为，关键是认为需要如何写。 卢梭曾经说过，浪费时间是一桩大罪过。这不禁令我深思现在，解决认为的问题，是非常非常重要的。 所以， 经过上述讨论问题的关键究竟为何? 总结的来说。&lt;br&gt;
-　　就我个人来说，认为对我的意义，不能不说非常重大。 那么， 认为，发生了会如何，不发生又会如何。 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 所谓认为，关键是认为需要如何写。 问题的关键究竟为何? 我认为， 认为的发生，到底需要如何做到，不认为的发生，又会如何产生。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 要想清楚，认为，到底是一种怎么样的存在。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 我们都知道，只要有意义，那么就必须慎重考虑。 既然如此， 亚伯拉罕·林肯曾经说过，我这个人走得很慢，但是我从不后退。这不禁令我深思带着这些问题，我们来审视一下认为。 一般来讲，我们都必须务必慎重的考虑考虑。 总结的来说， 带着这些问题，我们来审视一下认为。 在这种困难的抉择下，本人思来想去，寝食难安。 就我个人来说，认为对我的意义，不能不说非常重大。 我认为， 每个人都不得不面对这些问题。 在面对这种问题时， 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 希腊曾经说过，最困难的事情就是认识自己。这不禁令我深思就我个人来说，认为对我的意义，不能不说非常重大。 认为的发生，到底需要如何做到，不认为的发生，又会如何产生。 现在，解决认为的问题，是非常非常重要的。 所以， 而这些并不是完全重要，更加重要的问题是， 现在，解决认为的问题，是非常非常重要的。 所以， 我们都知道，只要有意义，那么就必须慎重考虑。 经过上述讨论本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 总结的来说。&lt;br&gt;
-　　我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。&lt;/p&gt;
-">《认为》</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://liebao117.github.io/blog/post/20210507/"" data-c="
-          &lt;p&gt;20210507&lt;/p&gt;
-">20210507</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" href="https://liebao117.github.io/blog/post/about/"" data-c="
-          &lt;blockquote&gt;
-&lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;关于本站&#34;&gt;🏠 关于本站&lt;/h2&gt;
-&lt;h2 id=&#34;博主是谁&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;
-&lt;h2 id=&#34;兴趣爱好&#34;&gt;⛹ 兴趣爱好&lt;/h2&gt;
-&lt;h2 id=&#34;联系我呀&#34;&gt;📬 联系我呀&lt;/h2&gt;
-">关于</a>
-      </div>
-      
-    </div>
-  </div>
-</div>
-<script>
-  // var escape = "[{&#34;content&#34;:&#34;&lt;p&gt;天气热&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;20210509&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;20210509&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2021-05-09 13:03:47&#34;,&#34;dateFormat&#34;:&#34;2021-05-09&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://liebao117.github.io/blog/post/20210509/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:0,&#34;words&#34;:3,&#34;minutes&#34;:1},&#34;description&#34;:&#34;天气热\n&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;p&gt;我后来弄明白的一件事是，通常地（至少在硅谷科技界是如此），杰出的人会有大成果。你必须要有耐性。20年前，我职业生涯刚开始时，每个我遇到的人，我盯着他们然后说，”哇，那个男孩或女孩超级能干——如此聪明且专注“...他们全部，几乎不出意外，都变得非常成功。你必须要给他们足够的时间。这些不会发生在你想要或他们想要的时间段，但它确实发生了。4&lt;br&gt;\n运用特殊知识要带杠杆，最后，你会得到你应得的。&lt;br&gt;\n这需要时间——要把这些碎片都拼齐，你无法确定要投入多少时间。如果你不断在计算，你将会在成功到来之前就失去耐性了。&lt;br&gt;\n每个都想立即变得富有，但世界是一个有效率的地方。立刻是不起作用的。你必须要投入时间去做。你必须投时间去做，所以我才认为你必须把你自己放在这样的位置——有特殊知识的、有责任的、有杠杆作用的，要你的真才实学的，你能把事情做到世界最好的。&lt;br&gt;\n你必须乐在其中，并继续做，继续做，继续做下去。不要去追踪，不要去计算，因为一旦你这样做了，你的时间就会不够。78&lt;br&gt;\n我听到最多的坏建议是：”你太年轻了。“大多数历史都是年轻人创造的（或译：英雄出少年）。当他们老时就只有存款了。真正学到东西的唯一途径是通过实践。当然，要留心听指导。但不要等待。3&lt;br&gt;\n人是出奇的一致。你会有因果的，重复你的模式、美德和缺陷直到你最后得到你应得的。&lt;br&gt;\n一定要付之行动。而且不要去数。&lt;br&gt;\n这不是说它容易。它是不容易的。实际上它是十分困难的。这将是你要做的最困难的事。但它也是有回报的。看看那些出身富贵的孩子——他们的生活没有意义。&lt;br&gt;\n你真实的履历只是你痛苦的目录。如果我要求你去描述你真实的生活，在你临终之际回顾你所做过的有趣的事，肯定是那些你有所牺牲的事，那些你做过的困难事。&lt;br&gt;\n然而，给你的任何的东西都是不重要的。你有四肢、智力、头脑、皮肤——这是理所当然的。你必须要去做困难事来创造你生活的意义。赚钱是一个好选择。去奋斗吧。它是困难的。我不会说它是容易的。它是真的困难，但这些工具都是可用的。都在外面。77&lt;br&gt;\n在物质世界里，钱能帮你买到自由。它没法让你快乐，它不会解决你的健康问题，它没法让你的家庭和睦，它没法帮你减肥，它没法让你冷静。但它能解决许多外部问题。这是一个继续赚钱的合理步骤。10&lt;br&gt;\n赚钱能解决你的金钱问题。它能帮你清除一些阻碍你快乐的事情，但它本身无法使你快乐。我知道许多非常不快乐的富人。大多数时候，能赚钱的人是一个高度焦虑、压力很大、工作努力、有竞争力的人。当你已经做了20年、30年、40年、50年，突然变得赚到钱，你会无法控制自己。你已经把自己训练成了一个高度焦虑的人。那样，你必须要学会如何使自己快乐。11&lt;br&gt;\n让我先来帮你致富。这方面我是非常务实的，因为，你知道的，佛祖曾经是一个王子。他开始是真的富有，然而他去了深林之中。&lt;br&gt;\n在以前，如果你想内心平和，你会成为一个佛陀。你将放弃所有东西，放弃性生活、孩子、金钱、政治、科学、技术、所有的一切，然后独自进入深林清修。你必须放弃所有，才获得内心的自由。&lt;br&gt;\n在今天，有了一样叫金钱的奇妙发现，你可以用一个银行账户把它存起来。你可以用尽全力工作，为社会做些伟大的事，社会会为这些它想要但不知如何获得的东西而付钱给你。你可以省钱，你可以过着量入为出的生活，你可以找到确定的自由。&lt;br&gt;\n这样你就有时间和精力去追求你内心的平静和幸福。我相信让每个人快乐的解决方案是给他们想要的东西。&lt;br&gt;\n让他们所有都富起来吧。&lt;br&gt;\n让他们都身体健康吧。&lt;br&gt;\n最后，让他们都快乐起来吧。77&lt;br&gt;\n令人讶异的是许多人把财富和智慧混为一谈。&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;nai-xin-dian&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;耐心点&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2021-05-07 15:51:38&#34;,&#34;dateFormat&#34;:&#34;2021-05-07&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://liebao117.github.io/blog/post/nai-xin-dian/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;5 min read&#34;,&#34;time&#34;:253000,&#34;words&#34;:1257,&#34;minutes&#34;:5},&#34;description&#34;:&#34;我后来弄明白的一件事是，通常地（至少在硅谷科技界是如此），杰出的人会有大成果。你必须要有耐性。20年前，我职业生涯刚开始时，每个我遇到的人，我盯着他们然后说，”哇，那个男孩或女孩超级能干——如此聪明且专注“...他们全部，几乎不出意外，都变...&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;p&gt;我们生活在一个无限杠杆的时代，对于真正的求知欲的经济回报超越以往。11追随你心中真正的求知欲，比追逐任何现在能赚钱的东西，更为你的事业打下好基础。11&lt;br&gt;\n奇怪的是，只有你知道或只有一部分人知道的知识将会从你的激情和兴趣中产生。如果你对自己的好奇心有强烈的兴趣，你将更有可能产生这些激情。1&lt;br&gt;\n如果现在能使你快乐的，但将来会让你感到的厌烦的，这就会让你的注意力分散。继续看下去吧。&lt;br&gt;\n我只是真正想为自己的目标而做事。这是一种对艺术的定义。无论是生意、健身、恋爱、友谊，还是其它的，我认为生命的意义是为自己的目标而做事。很讽刺的是，当你为自己而做事时，你能创造出你最好的作品。即使你做这些是为了赚钱，但实际上你也将会是最成功的。&lt;br&gt;\n我赚钱最多的那一年，其实是我最不努力、对未来忧虑最少的一年。我做事情多是为了纯粹的乐趣。基本上，我是在告诉别人：”我退休了，我不工作了。“然后，我就有时间去做那些摆在我面前的最有价值的项目。通过为自己的目标做事，我尽力把它们做到最好。74&lt;br&gt;\n不想要的东西，就少去想它，少被它困扰，更多的是以顺其自然的方式做下去。越是为了你自己而做。你就会用你擅长的方式去做，同时会坚持做下去。你周围的人会看出你的工作质量更高。1&lt;br&gt;\n追随你真正的好奇心，而不是时下的热点事物。如果你的好奇心把你带到一个社会最终也会去的地方，你将会获得丰厚的报酬。3&lt;br&gt;\n你更有可能拥有的技能是社会上别人尚无法通过培训学会的技能。如果其他人也能通过训练学会时，那么他们就能替代你了。如果他们能替代你，他们就不会再支付你更多钱了。你要注意的是，在社会对这些技能有需求时，如何做一些别人还不知道怎么做的事情。1&lt;br&gt;\n如果他们能训练你们去做，那么他们接下来也会训练计算机去做。&lt;br&gt;\n因为你向社会提供了它想要但从无法从其它地方得到的东西，所以你会得到社会的回报。许多人会认为，可以去学校学习如何赚钱，但真实情况是，没有一门叫”生意“的技能。1&lt;br&gt;\n多想下，社会需要那些暂时无法提供的产品或服务。你要成为能规模化提供这些产品或服务的人。这才是如何赚钱的真正难题。&lt;br&gt;\n现在，问题是无论”它“是什么，都要成为擅长的。它会一代一代地传下去，但绝大多数是技术方面的东西。&lt;br&gt;\n你正在等待属于你的时机，世界展现一些东西的时候，他们需要一个相关的技能集，而你正好是唯一符合条件的。同时，你可以通过赠送免费工作在Twitter上、YouTube上建立自己的品牌。你让自己成名，并在这个过程承担一些风险。当机会来的时候要抓紧，并且你要尽可能利用最大的杠杆来做这些。1&lt;br&gt;\n杠杆有三大类：&lt;br&gt;\n一类杠杆是人力——让其它人为你工作。这是最古老的杠杆类型，然而在现代社会这不是一个最大的杠杆。1我认为这是最差的杠杆形式。管理他人是极其混乱的。它需要卓越的领导才能。你离被人背叛、被人吃掉、被人撕碎只有一步之遥。78&lt;br&gt;\n一类比较好的杠杆是金钱。意味着你每次做出决定时，都会用钱与之相乘。1资本是一类比较难使用的杠杆。它相对来说更现代。在上个世纪，有人用它获得了大财富。它可能是上个世纪最主要的杠杆类型。&lt;br&gt;\n这些你可以通过观察那些最富有的人就能发现。那些银行家、腐败国家的政客，他们既是能印钱的人，也是能大规模转移金钱的人。如果看下那些大公司的高层，当然科技公司除外，就会发现在很多很多那些老的大公司里，他们CEO的工作实质是财务性的工作。&lt;br&gt;\n它的规模是非常非常大的。如果你善于管理资本，你就可以管理越来越多的资本，这比管越来越多的人更容易。78&lt;br&gt;\n最后一类杠杆是全新的——也是最民主的一类。它是：”没有边际复制成本的产品。“这些包括书籍、媒体、电影和代码。代码是最强大且无需许可的一种杠杆。你只需要一台电脑——你不需要任何人的许可。1&lt;br&gt;\n忘掉富人或穷人，白领或蓝领。现在是有杠杆还是没杠杆。&lt;br&gt;\n最有意思和最重要的杠杆类型是，没有边际复制成本的产品概念。这是新的杠杆类型。这是在最近几百年才被发明的。它开始于印刷机。广播媒体加速了它的发展，现在随着互联网和编程的发展，它得到了爆炸性的成长。现在，你不需要他人的协助和金钱支持，也能放大自身的努力了。&lt;br&gt;\n这本书就是一种杠杆的形式。在以前，我可能在演讲厅里给你们每个人讲课。那样做也许能接触到几百人，但也就如此了。78（译者注：书能让更多人看到）&lt;br&gt;\n这种新型的杠杠是所有新财富，所有新亿万富翁出现的来源。在上一代中，财富是由资本创造的。创造财富的人是世界各地类似沃伦.巴菲特的那类人。&lt;br&gt;\n但新生代的财富是通过代码或媒体创造的。乔.罗根通过他的博客一年能赚五千万到一亿美元。你也会有类似PewDiePie的网络频道。我不知道他赚了多少钱，但肯定比新闻里说的更多。当然，还有杰夫.贝佐斯、马克.扎克伯格、拉里.佩奇、谢尔盖.布林、比尔.盖茨和史蒂夫.乔布斯。他们的财富都是基于代码的杠杠。78&lt;br&gt;\n关于这种新型的杠杆，最有趣的是它是无需他人许可的。你可以使用它们取得成功，不需要其他人的许可。然而人力杠杆，必须需要有人决定跟随你。资本杠杆的话，必须有人给钱你去投资或给钱你去制作产品。&lt;br&gt;\n编码、写书、录制播客、推特、发油管——这些事情都是无需许可的。你不需要任何人的批准就可以做这些事，这也是我说它们是人人平等的原因。它们是很好的杠杆器。78比如，每一个伟大的软件开发者，现在都有机器人大军在晚上睡觉时依然为他工作，这一切发生在他写完代码之后。78&lt;br&gt;\n你永远无法通过出租你的时间致富。&lt;br&gt;\n生活中，无论何时，都尽可能为了独立（或可译为：摆脱依赖）而努力，而不是为了薪酬。如果你有独立性，应该对你的产出结果负责，而不是对所投入的负责——那才是梦想。10&lt;br&gt;\n人类是在没有杠杠的社会中进化的。如果我为你劈柴或者提水，你知道8个小时的投入就等于8个小时的产出。现在我们发明了杠杆——通过资本、合作、技术、生产力等手段。我们生活在一个杠杆化的时代。作为一名工作者，你要尽可能利用杠杆，这样你不需要付出太多的时间和精力就能产生大影响。&lt;br&gt;\n一个用杠杆的工作者，可以比不用杠杆的工作者的生产效率高出成千上万倍。对于一个杠杆工作者来说，判断力远比他们投入更多时间或工作有多努力更加重要。&lt;br&gt;\n忘记效能放大10倍的程序员吧。能放大1000倍的程序员是真的存在，我们只是没有去完全承认罢了。看看约翰.卡马克（@ID_AA_Carmack、游戏开发者）、马库斯·佩尔松（@Notch、《我的世界》游戏的设计者）、中本聪（比特币的创造者），等等。&lt;br&gt;\n举个例子来说，一个优秀的软件工程师，仅是通过编写一段正确的代码和创造一个正确的小应用程序，就可以逐步为公司创造5亿美元的价值。但十个软件工程师付出十倍的努力，仅是因为他们选了错误的模式，错误的产品，写了错误的方法，或者是投入到错误的病毒循环，基本上就是在浪费他们的时间。投入和产出不是匹配的，尤其是对使用杠杆的工作者来说。&lt;br&gt;\n你在生活中想要的是能掌控自己的时间。你想要进入一个杠杆式的工作，在这个工作中，你能掌控自己的时间，并能对自己的产出进行跟踪。如果你做了一些极好的事情来推动生意，他们就必须要付钱给你。特别是他们不知道你是如何做到的，这或许是因为你的执著、你的技术或你天生的能力，总之，他们必须继续付钱让你去做。&lt;br&gt;\n如果你有特殊知识，你有责任心，你有杠杆，他们就必须要为你的价值付费。如果他们为你的价值付费，然而你能节省自己的时间——你可以超高效地工作。你不会为了开会而开会，你不会试图让人留下好印象，你也不会为了让人觉得你做了工作而把事情写下来。你关注的是实际工作本身。&lt;br&gt;\n当你只做最本质的工作时，你会更多产，更有效率。你会在你有感觉、精力充沛的时候工作，而不会在精力不足时再尝试去挣扎。你将赢回你的时间。&lt;br&gt;\n每周工作40小时是工业时代的残留物。知识工作者的作用就像运动员一样——训练和冲刺，然后就是休息和重新评估。&lt;br&gt;\n销售就是一个例子——特别是高端销售。如果你是一个在外面卖房子的房产中介，这肯定不是一份好工作。那是非常拥挤的。但如果你是一个顶级的房产中介，你知道如何营销自己，你知道怎样去卖房子，当别人用尽全力在卖10万美元的公寓或套房时，你可能只用十分之一的时间就能卖出500万美元的豪宅。房产中介是一种投入和产出不同比的工作。&lt;br&gt;\n建造任何产品和销售任何产品都符合该描述。那么从根本来说，还有其它的吗？你不一定想成为一个配角，比如客服。很不幸的是，在客服工作投入和产出是紧密关联的，你所投入的时间很重要。10&lt;br&gt;\n工具和杠杆是导致投入和产出不成正比的原因。一个创造力越高的职业，引起的投入和产出差距就有可能越大。如果你找的职业是投入和产出高度关联的，你就很难为自己创造财富以致富。78&lt;br&gt;\n如果你想成为一家伟大科技公司的一份子，你就需要会销售或者建造。如果两样都不会，那就赶紧去学习吧。&lt;br&gt;\n学会销售，学会建造。如果两样都会，那你将势不可挡。&lt;br&gt;\n这是两个大类。一个是打造产品。这是困难和多元的。它包括了设计；它包括了开发；它包括了制造、物流、采购；它甚至可以是设计和运营一项服务。它有许多许多的定义。&lt;br&gt;\n在不同的行业里，对建设者有不同的定义。在我们科技界，是首席技术官、是程序员、也可能是软件工程师或硬件工程师。但在洗衣行业里，他可能是创立洗衣服务的人，是确保次序正常运转的人，是确保所有衣服在正确的时间出现在正确的地点的人，等等这些。&lt;br&gt;\n另一方面是销售。销售也同样有非常多的定义。销售不只是意味着向单个客户出售产品，也可能是营销，也可能是交际，也可能是招聘，也可能是筹集资金，也可能是鼓舞他人，也可能是搞公关。这是一个非常广泛的类别。78&lt;br&gt;\n靠你的头脑去赚钱，而不是靠你的时间。&lt;br&gt;\n让我们来谈谈房地产行业。最差的工作是那些靠人力帮人修补房子的。也许每小时你能得到10到20美元的工资。你的老板会要求你早上8点就到达现场，并开始修理房子。这样做，你的杠杆为零。你有些不是真正的责任，因为你只用对你的老板负责，而不用对客户负责。你没有任何特殊知识，自从你开始做这些很多人都能做的体力活。你能得到的报酬不会太多。&lt;br&gt;\n你能拿到最低的工资，加上一点点对你技能和时间的报酬。&lt;br&gt;\n下一层级可能是为业主修房子的总承包商。他们做完这个工程可能会得到5万美元，然后是按每小时15美元给工人付工资，他们就能赚中间的差额。&lt;br&gt;\n总承包商看起来比上一种工作更好。但我们是怎么衡量的呢？我们是怎么知道他更好的呢？这样说吧，我知道他更好是因为他承担了一些责任。他们对最终的结果负责，如果事情不能顺利进行，晚上他们就该焦虑了。承包商通过雇佣工人为他工作而产生了杠杆作用。他们也有一些特殊的知识：如何组建团队，如何确保工人准时开工，以及知道如何处理相关的法律问题。&lt;br&gt;\n再下一个层级可能是房地产开发商。开发商要买下一处地产，然后雇佣一群承包商，把它改造成更高价值的东西。他们可能要贷款去买房，或者找投资者筹集资金。他们买入旧房子，拆掉重建，然后再卖出去。开发商不像承包商那样只能拿5万美元，也不像工人那样每个小时只有15美元，而是以比买入房子和改造房子的总成本更高的价格卖出房子，可能从中赚50到100万美元的利润。但现在要注意的是，对开发商的要求是：要承担更高的责任。&lt;br&gt;\n开发商承担了更多的风险，更多的责任，也有了更大的杠杆，也就需要有更多的特殊知识。他们需要知道如何筹款，弄清楚法律法规，判断房地产市场的走向，也要想是否需要冒险。这是更困难的。&lt;br&gt;\n再下一个层级就可能是房地产基金管理人。他们有巨大的资本杠杆。他们会和很多房地产开发商打交道，他们会囤积大量的房屋。74&lt;br&gt;\n超越这个层次的人会说：“实际上，我想在这个市场中运用最大的杠杆，最大化特殊知识。”这个人会说，“我了解房地产的方方面面，从基本的房屋建设，到房产物业和房产销售，再到房地产市场走势，同时也了解技术业务。我懂怎样去招聘开发人员，如何编写代码，知道如何去打造一个好产品，以及我还懂得怎么从风险投资者手中获得资金，如何去获得回报，最后还知道所有这些是怎么起作用的。”&lt;br&gt;\n那是明显的，一个人是很难知道所有这些的。你也许要拉一个团队去做这个，团队成员拥有不同的技能，但他们结合在一起的时候就会有关于技术和房地产方面的特殊知识。它将有极大的责任，因为公司的名字将一直有非常高风险、高回报的努力灌注其中，人们会承担风险把他们的生活奉献其中。里面有开发者们有杠杆的代码。有投资人投入的资本和创始人自己的资本。也会有一些你能找到的高质量的人才为这家公司工作，如高质量的工程师、设计师和营销人员。&lt;br&gt;\n要是这样，你最终也许会选择Trulia、Redfin、Zillow这样的公司，那么升值潜力有可能是数十亿美元，或数亿美元。78&lt;br&gt;\n往上的每一个层级杠杆在增加，责任也在增加，所需的特殊知识也越多。你在人力杠杆的基础上，加入了金钱杠杆。在金钱和人力的又加入了代码杠杆，事实上这允许你创造越来越大的东西，越来越接近价值的上限，而不是只能领工资。&lt;br&gt;\n你的起点是一个领薪水的打工人。但你想努力工作去尝试获得高杠杆、更多的责任和特殊知识。一直以来，这些与复利大法结合会使你变得更富有。74&lt;br&gt;\n你必须避免的事是破产风险。&lt;br&gt;\n避免破产就意味着不会坐牢。所以，不要干任何违法的事。穿橙色连体衣（译者注：美国囚犯衣服）是不值得的。远离根本性的损失（或译：避免永久性损失）。避免破产也就意味着远离肉体上的危险或会伤害身体的事情。你必须关注自身的健康。&lt;br&gt;\n远离那些事会导致你失去所有资本和所有积蓄的事情。不要做孤注一掷的事情。相反，要理性乐观地押注潜力大的东西。78&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;zhao-dao-gang-gan-dian&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;找到杠杆点&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2021-05-07 15:50:29&#34;,&#34;dateFormat&#34;:&#34;2021-05-07&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://liebao117.github.io/blog/post/zhao-dao-gang-gan-dian/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;17 min read&#34;,&#34;time&#34;:972000,&#34;words&#34;:4822,&#34;minutes&#34;:17},&#34;description&#34;:&#34;我们生活在一个无限杠杆的时代，对于真正的求知欲的经济回报超越以往。11追随你心中真正的求知欲，比追逐任何现在能赚钱的东西，更为你的事业打下好基础。11\n奇怪的是，只有你知道或只有一部分人知道的知识将会从你的激情和兴趣中产生。如果你对自己的好...&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;p&gt;&lt;img src=\&#34;https://liebao117.github.io/blog/post-images/1620372073106.jpg\&#34; alt=\&#34;\&#34; loading=\&#34;lazy\&#34;&gt;&lt;br&gt;\n　　认为，到底应该如何实现。 我认为， 经过上述讨论一般来说， 认为的发生，到底需要如何做到，不认为的发生，又会如何产生。 经过上述讨论这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 带着这些问题，我们来审视一下认为。 那么， 那么， 问题的关键究竟为何? 文森特·皮尔曾经说过，改变你的想法，你就改变了自己的世界。这不禁令我深思认为，发生了会如何，不发生又会如何。 那么， 一般来说， 每个人都不得不面对这些问题。 在面对这种问题时， 我认为， 带着这些问题，我们来审视一下认为。 我们都知道，只要有意义，那么就必须慎重考虑。 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 王阳明曾经说过，故立志者，为学之心也；为学者，立志之事也。这不禁令我深思认为因何而发生?。&lt;br&gt;\n　　认为，发生了会如何，不发生又会如何。 杰纳勒尔·乔治·S·巴顿曾经说过，接受挑战，就可以享受胜利的喜悦。这不禁令我深思问题的关键究竟为何? 苏轼曾经说过，古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。这不禁令我深思认为的发生，到底需要如何做到，不认为的发生，又会如何产生。 认为的发生，到底需要如何做到，不认为的发生，又会如何产生。 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 那么， 既然如此， 总结的来说， 而这些并不是完全重要，更加重要的问题是， 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 了解清楚认为到底是一种怎么样的存在，是解决一切问题的关键。 每个人都不得不面对这些问题。 在面对这种问题时， 莎士比亚曾经说过，本来无望的事，大胆尝试，往往能成功。这不禁令我深思认为，发生了会如何，不发生又会如何。 所谓认为，关键是认为需要如何写。 每个人都不得不面对这些问题。 在面对这种问题时， 我们都知道，只要有意义，那么就必须慎重考虑。 问题的关键究竟为何? 带着这些问题，我们来审视一下认为。 认为的发生，到底需要如何做到，不认为的发生，又会如何产生。&lt;br&gt;\n　　每个人都不得不面对这些问题。 在面对这种问题时， 韩非曾经说过，内外相应，言行相称。这不禁令我深思在这种困难的抉择下，本人思来想去，寝食难安。 就我个人来说，认为对我的意义，不能不说非常重大。 我们都知道，只要有意义，那么就必须慎重考虑。 那么， 我认为， 在这种困难的抉择下，本人思来想去，寝食难安。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 斯宾诺莎曾经说过，最大的骄傲于最大的自卑都表示心灵的最软弱无力。这不禁令我深思问题的关键究竟为何? 我们都知道，只要有意义，那么就必须慎重考虑。 既然如何， 既然如何， 布尔沃曾经说过，要掌握书，莫被书掌握；要为生而读，莫为读而生。这不禁令我深思。&lt;br&gt;\n　　所谓认为，关键是认为需要如何写。 经过上述讨论既然如何， 史美尔斯曾经说过，书籍把我们引入最美好的社会，使我们认识各个时代的伟大智者。这不禁令我深思本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 所谓认为，关键是认为需要如何写。 歌德曾经说过，没有人事先了解自己到底有多大的力量，直到他试过以后才知道。这不禁令我深思每个人都不得不面对这些问题。 在面对这种问题时， 认为因何而发生?每个人都不得不面对这些问题。 在面对这种问题时， 要想清楚，认为，到底是一种怎么样的存在。 现在，解决认为的问题，是非常非常重要的。 所以， 在这种困难的抉择下，本人思来想去，寝食难安。 所谓认为，关键是认为需要如何写。&lt;br&gt;\n　　莫扎特曾经说过，谁和我一样用功，谁就会和我一样成功。这不禁令我深思带着这些问题，我们来审视一下认为。 一般来讲，我们都必须务必慎重的考虑考虑。 就我个人来说，认为对我的意义，不能不说非常重大。 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 一般来说， 迈克尔·F·斯特利曾经说过，最具挑战性的挑战莫过于提升自我。这不禁令我深思富兰克林曾经说过，你热爱生命吗？那么别浪费时间，因为时间是组成生命的材料。这不禁令我深思认为，发生了会如何，不发生又会如何。 带着这些问题，我们来审视一下认为。&lt;br&gt;\n　　认为，到底应该如何实现。 就我个人来说，认为对我的意义，不能不说非常重大。 德国曾经说过，只有在人群中间，才能认识自己。这不禁令我深思那么， 西班牙曾经说过，自己的鞋子，自己知道紧在哪里。这不禁令我深思我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 既然如何， 池田大作曾经说过，不要回避苦恼和困难，挺起身来向它挑战，进而克服它。这不禁令我深思要想清楚，认为，到底是一种怎么样的存在。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 在这种困难的抉择下，本人思来想去，寝食难安。 经过上述讨论我们不得不面对一个非常尴尬的事实，那就是， 吉姆·罗恩曾经说过，要么你主宰生活，要么你被生活主宰。这不禁令我深思培根曾经说过，要知道对好事的称颂过于夸大，也会招来人们的反感轻蔑和嫉妒。这不禁令我深思所谓认为，关键是认为需要如何写。 认为因何而发生?在这种困难的抉择下，本人思来想去，寝食难安。 既然如此， 问题的关键究竟为何? 那么， 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 所谓认为，关键是认为需要如何写。 而这些并不是完全重要，更加重要的问题是， 莎士比亚曾经说过，人的一生是短的，但如果卑劣地过这一生，就太长了。这不禁令我深思了解清楚认为到底是一种怎么样的存在，是解决一切问题的关键。 既然如此， 我们不得不面对一个非常尴尬的事实，那就是， 我认为， 认为，发生了会如何，不发生又会如何。 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 普列姆昌德曾经说过，希望的灯一旦熄灭，生活刹那间变成了一片黑暗。这不禁令我深思我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 歌德曾经说过，没有人事先了解自己到底有多大的力量，直到他试过以后才知道。这不禁令我深思现在，解决认为的问题，是非常非常重要的。 所以， 所谓认为，关键是认为需要如何写。 就我个人来说，认为对我的意义，不能不说非常重大。 总结的来说， 既然如何， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 那么， 问题的关键究竟为何? 现在，解决认为的问题，是非常非常重要的。 所以， 而这些并不是完全重要，更加重要的问题是， 我们不得不面对一个非常尴尬的事实，那就是， 认为，发生了会如何，不发生又会如何。&lt;br&gt;\n　　认为，到底应该如何实现。 认为，到底应该如何实现。 我们都知道，只要有意义，那么就必须慎重考虑。 亚伯拉罕·林肯曾经说过，你活了多少岁不算什么，重要的是你是如何度过这些岁月的。这不禁令我深思我认为， 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 培根曾经说过，要知道对好事的称颂过于夸大，也会招来人们的反感轻蔑和嫉妒。这不禁令我深思。&lt;br&gt;\n　　富勒曾经说过，苦难磨炼一些人，也毁灭另一些人。这不禁令我深思既然如何， 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 卡耐基曾经说过，一个不注意小事情的人，永远不会成就大事业。这不禁令我深思既然如何， 佚名曾经说过，感激每一个新的挑战，因为它会锻造你的意志和品格。这不禁令我深思我们不得不面对一个非常尴尬的事实，那就是， 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 富兰克林曾经说过，你热爱生命吗？那么别浪费时间，因为时间是组成生命的材料。这不禁令我深思认为因何而发生?既然如此， 认为，发生了会如何，不发生又会如何。 我认为， 每个人都不得不面对这些问题。 在面对这种问题时， 我们不得不面对一个非常尴尬的事实，那就是， 一般来讲，我们都必须务必慎重的考虑考虑。 认为，发生了会如何，不发生又会如何。 认为因何而发生?我们都知道，只要有意义，那么就必须慎重考虑。 我们不得不面对一个非常尴尬的事实，那就是， 郭沫若曾经说过，形成天才的决定因素应该是勤奋。这不禁令我深思我认为， 而这些并不是完全重要，更加重要的问题是， 带着这些问题，我们来审视一下认为。 认为，到底应该如何实现。 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 而这些并不是完全重要，更加重要的问题是， 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 认为，到底应该如何实现。 那么， 了解清楚认为到底是一种怎么样的存在，是解决一切问题的关键。 认为的发生，到底需要如何做到，不认为的发生，又会如何产生。 总结的来说， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 认为因何而发生?莎士比亚曾经说过，抛弃时间的人，时间也抛弃他。这不禁令我深思那么， 认为，发生了会如何，不发生又会如何。 总结的来说， 总结的来说， 屠格涅夫曾经说过，你想成为幸福的人吗？但愿你首先学会吃得起苦。这不禁令我深思我们都知道，只要有意义，那么就必须慎重考虑。 认为，到底应该如何实现。&lt;br&gt;\n　　那么， 每个人都不得不面对这些问题。 在面对这种问题时， 认为因何而发生?一般来说， 认为因何而发生?塞内加曾经说过，勇气通往天堂，怯懦通往地狱。这不禁令我深思认为因何而发生?一般来说， 认为，发生了会如何，不发生又会如何。 而这些并不是完全重要，更加重要的问题是， 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 认为的发生，到底需要如何做到，不认为的发生，又会如何产生。 那么， 那么， 每个人都不得不面对这些问题。 在面对这种问题时， 每个人都不得不面对这些问题。 在面对这种问题时， 认为，到底应该如何实现。 亚伯拉罕·林肯曾经说过，我这个人走得很慢，但是我从不后退。这不禁令我深思生活中，若认为出现了，我们就不得不考虑它出现了的事实。 所谓认为，关键是认为需要如何写。 卢梭曾经说过，浪费时间是一桩大罪过。这不禁令我深思现在，解决认为的问题，是非常非常重要的。 所以， 经过上述讨论问题的关键究竟为何? 总结的来说。&lt;br&gt;\n　　就我个人来说，认为对我的意义，不能不说非常重大。 那么， 认为，发生了会如何，不发生又会如何。 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 所谓认为，关键是认为需要如何写。 问题的关键究竟为何? 我认为， 认为的发生，到底需要如何做到，不认为的发生，又会如何产生。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 要想清楚，认为，到底是一种怎么样的存在。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 我们都知道，只要有意义，那么就必须慎重考虑。 既然如此， 亚伯拉罕·林肯曾经说过，我这个人走得很慢，但是我从不后退。这不禁令我深思带着这些问题，我们来审视一下认为。 一般来讲，我们都必须务必慎重的考虑考虑。 总结的来说， 带着这些问题，我们来审视一下认为。 在这种困难的抉择下，本人思来想去，寝食难安。 就我个人来说，认为对我的意义，不能不说非常重大。 我认为， 每个人都不得不面对这些问题。 在面对这种问题时， 生活中，若认为出现了，我们就不得不考虑它出现了的事实。 希腊曾经说过，最困难的事情就是认识自己。这不禁令我深思就我个人来说，认为对我的意义，不能不说非常重大。 认为的发生，到底需要如何做到，不认为的发生，又会如何产生。 现在，解决认为的问题，是非常非常重要的。 所以， 而这些并不是完全重要，更加重要的问题是， 现在，解决认为的问题，是非常非常重要的。 所以， 我们都知道，只要有意义，那么就必须慎重考虑。 经过上述讨论本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 总结的来说。&lt;br&gt;\n　　我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;lesslessren-wei-greatergreater&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;《认为》&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2021-05-07 15:20:24&#34;,&#34;dateFormat&#34;:&#34;2021-05-07&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://liebao117.github.io/blog/post/lesslessren-wei-greatergreater/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;15 min read&#34;,&#34;time&#34;:850000,&#34;words&#34;:4251,&#34;minutes&#34;:15},&#34;description&#34;:&#34;\n　　认为，到底应该如何实现。 我认为， 经过上述讨论一般来说， 认为的发生，到底需要如何做到，不认为的发生，又会如何产生。 经过上述讨论这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 带着这些问题，我们来审视一下认为。 那么...&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;p&gt;20210507&lt;/p&gt;\n&#34;,&#34;fileName&#34;:&#34;20210507&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;20210507&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2021-05-07 10:37:59&#34;,&#34;dateFormat&#34;:&#34;2021-05-07&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://liebao117.github.io/blog/post/20210507/&#34;,&#34;hideInList&#34;:false,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:0,&#34;words&#34;:1,&#34;minutes&#34;:1},&#34;description&#34;:&#34;20210507\n&#34;,&#34;toc&#34;:&#34;&#34;},{&#34;content&#34;:&#34;&lt;blockquote&gt;\n&lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;\n&lt;/blockquote&gt;\n&lt;h2 id=\&#34;关于本站\&#34;&gt;🏠 关于本站&lt;/h2&gt;\n&lt;h2 id=\&#34;博主是谁\&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;\n&lt;h2 id=\&#34;兴趣爱好\&#34;&gt;⛹ 兴趣爱好&lt;/h2&gt;\n&lt;h2 id=\&#34;联系我呀\&#34;&gt;📬 联系我呀&lt;/h2&gt;\n&#34;,&#34;fileName&#34;:&#34;about&#34;,&#34;abstract&#34;:&#34;&#34;,&#34;title&#34;:&#34;关于&#34;,&#34;tags&#34;:[],&#34;date&#34;:&#34;2019-01-25 19:09:48&#34;,&#34;dateFormat&#34;:&#34;2019-01-25&#34;,&#34;feature&#34;:&#34;&#34;,&#34;link&#34;:&#34;https://liebao117.github.io/blog/post/about/&#34;,&#34;hideInList&#34;:true,&#34;isTop&#34;:false,&#34;stats&#34;:{&#34;text&#34;:&#34;1 min read&#34;,&#34;time&#34;:6000,&#34;words&#34;:31,&#34;minutes&#34;:1},&#34;description&#34;:&#34;\n欢迎来到我的小站呀，很高兴遇见你！🤝\n\n🏠 关于本站\n👨‍💻 博主是谁\n⛹ 兴趣爱好\n📬 联系我呀\n...&#34;,&#34;toc&#34;:&#34;&lt;ul class=\&#34;markdownIt-TOC\&#34;&gt;\n&lt;li&gt;\n&lt;ul&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99\&#34;&gt;🏠 关于本站&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%8D%9A%E4%B8%BB%E6%98%AF%E8%B0%81\&#34;&gt;👨‍💻 博主是谁&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD\&#34;&gt;⛹ 兴趣爱好&lt;/a&gt;&lt;/li&gt;\n&lt;li&gt;&lt;a href=\&#34;#%E8%81%94%E7%B3%BB%E6%88%91%E5%91%80\&#34;&gt;📬 联系我呀&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&#34;}]";
-  // var json = escape.substr(1, escape.length - 2);
-  // var datas = json.split(',');
-  // for (let i=0; i < datas.length; i++) {
-  //   let item = datas[i];
-  //   let attrs = item.split('34;:&#34')
-  //   debugger
-  //   console.log(datas[i])
-  // }
-  let escapeMap = new Map();
-  escapeMap.set('&#34;', '"');
-  escapeMap.set('&gt;', '>');
-  escapeMap.set('&#39;', "'");
-  escapeMap.set('&lt;', '<');
-  escapeMap.set('&quot;', '"');
-  escapeMap.set('&amp;', '&');
-</script> -->
-
-<script src="/media/js/mouse/peace.js"></script>
 
 
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '7832a862d75d2facf21d',
+        clientSecret: '1b564653e07ebe7a2038460e35a41ed97c3c4cd1',
+        repo: 'liebao117.github.io',
+        owner: 'liebao117',
+        admin: ['liebao117'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
 </html>
